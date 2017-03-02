@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  magic:
+    image: martel-innovate/kurento-magic-mirror-docker
+    ports:
+      - 8443:8443
+    links:
+      - kurento:kurento
+    deploy:
+      mode: global
+
+  kurento:
+    image: kurento/kurento-media-server
+    ports:
+      - 8888:8888
+    deploy:
+      mode: replicated
+      replicas: 2
+      resources:
+        limits:
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+        delay: 10s
