@@ -2,11 +2,11 @@ version: "3"
 
 services:
   magic:
-    image: martel-innovate/kurento-magic-mirror-docker
+    image: martel/kurento-magic-mirror-docker
     ports:
       - 8443:8443
     links:
-      - kurento:kurento
+      - kurento
     deploy:
       mode: global
 
