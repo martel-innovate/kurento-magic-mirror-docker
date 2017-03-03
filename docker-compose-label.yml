@@ -3,6 +3,8 @@ version: "3"
 services:
   magic:
     image: martel/kurento-magic-mirror-docker:latest
+    environment:
+      - MAGICHOST=${MAGICHOST}
     links:
       - kurento
     ports:

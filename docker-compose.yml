@@ -4,7 +4,7 @@ services:
   magic:
     image: martel/kurento-magic-mirror-docker:latest
     environment:
-     - MAGICHOST=${DEMO_VAR}
+     - MAGICHOST=${MAGICHOST}
     links:
       - kurento
     ports:
