@@ -17,6 +17,7 @@ WORKDIR kurento-tutorial-node/kurento-magic-mirror
 RUN npm install -g bower
 RUN git checkout 6.6.0
 RUN npm install --unsafe-perm
+ENV MAGICHOST=localhost
 
 EXPOSE 8443
-ENTRYPOINT npm start -- --ws_uri=ws://kurento:8888/kurento
+ENTRYPOINT npm start -- --ws_uri=ws://kurento:8888/kurento --as_uri=https://{$MAGICHOST}:8443/

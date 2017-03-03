@@ -3,8 +3,6 @@ version: "3"
 services:
   magic:
     image: martel/kurento-magic-mirror-docker:latest
-    environment:
-     - MAGICHOST=${DEMO_VAR}
     links:
       - kurento
     ports:
@@ -17,6 +15,9 @@ services:
       restart_policy:
         condition: on-failure
         delay: 10s
+      placement:
+        constraints:
+          - node.labels.region==CH
 
   kurento:
     image: kurento/kurento-media-server:latest
